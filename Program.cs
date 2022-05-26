@@ -13,9 +13,8 @@ namespace PlanYourHeist
             bool memberCheck = true;
             int bankLevel = 100;
             int memberSkillSum = 0;
-            Random r = new Random();
-            int luckValue = r.Next(-10,10);
-            bankLevel += luckValue;
+            
+            
             
             while(memberCheck){
 
@@ -39,22 +38,32 @@ namespace PlanYourHeist
                     Console.WriteLine($"There are {memberList.Count} members on the team.");
                 }
             }
-             
-            foreach (TeamMember member in memberList)
+            Console.WriteLine("How many trial runs would you like to do?");
+            int trialRuns = int.Parse(Console.ReadLine());
+            
+            for(int i = 0; i < trialRuns; i++)
             {
-                memberSkillSum += member.SkillLevel;
-            }
 
-            Console.WriteLine($"Your team has a total skill of {memberSkillSum}.");
-            Console.WriteLine($"The Bank has a difficulty of {bankLevel}.");
+                Random r = new Random();
+                int luckValue = r.Next(-10,10);
+                bankLevel += luckValue;
+                foreach (TeamMember member in memberList)
+                {
+                    memberSkillSum += member.SkillLevel;
+                }
 
-            if (bankLevel <= memberSkillSum)
-            {
-                Console.WriteLine("YOU DID A CRIME!");
-            }
-            else
-            {
-                Console.WriteLine("FAIL");
+                Console.WriteLine($"Your team has a total skill of {memberSkillSum}.");
+                Console.WriteLine($"The Bank has a difficulty of {bankLevel}.");
+
+                if (bankLevel <= memberSkillSum)
+                {
+                    Console.WriteLine("YOU DID A CRIME!");
+                }
+                else
+                {
+                    Console.WriteLine("FAIL");
+                }
+                memberSkillSum = 0;
             }
 
         }
