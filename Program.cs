@@ -9,11 +9,13 @@ namespace PlanYourHeist
         {
             Console.WriteLine("Plan Your Heist!");
             Console.WriteLine();
+
+            Console.WriteLine("Please enter a bank difficulty level");
             List<TeamMember> memberList = new List<TeamMember>();
             bool memberCheck = true;
-            int bankLevel = 100;
+            int bankLevel = int.Parse(Console.ReadLine());
             int memberSkillSum = 0;
-            
+            int successfulRuns = 0;
             
             
             while(memberCheck){
@@ -41,6 +43,9 @@ namespace PlanYourHeist
             Console.WriteLine("How many trial runs would you like to do?");
             int trialRuns = int.Parse(Console.ReadLine());
             
+            int bankLevelReset = bankLevel;
+
+
             for(int i = 0; i < trialRuns; i++)
             {
 
@@ -58,13 +63,16 @@ namespace PlanYourHeist
                 if (bankLevel <= memberSkillSum)
                 {
                     Console.WriteLine("YOU DID A CRIME!");
+                    successfulRuns++;
                 }
                 else
                 {
                     Console.WriteLine("FAIL");
                 }
                 memberSkillSum = 0;
+                bankLevel = bankLevelReset;
             }
+            Console.WriteLine($"There were {successfulRuns} successful runs and {trialRuns - successfulRuns} failed.g");
 
         }
     }
