@@ -13,6 +13,9 @@ namespace PlanYourHeist
             bool memberCheck = true;
             int bankLevel = 100;
             int memberSkillSum = 0;
+            Random r = new Random();
+            int luckValue = r.Next(-10,10);
+            bankLevel += luckValue;
             
             while(memberCheck){
 
@@ -41,6 +44,10 @@ namespace PlanYourHeist
             {
                 memberSkillSum += member.SkillLevel;
             }
+
+            Console.WriteLine($"Your team has a total skill of {memberSkillSum}.");
+            Console.WriteLine($"The Bank has a difficulty of {bankLevel}.");
+
             if (bankLevel <= memberSkillSum)
             {
                 Console.WriteLine("YOU DID A CRIME!");
