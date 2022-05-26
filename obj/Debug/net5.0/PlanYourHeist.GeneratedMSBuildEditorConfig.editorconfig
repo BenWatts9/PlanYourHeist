@@ -7,8 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = PlanYourHeist
-<<<<<<< HEAD
-build_property.ProjectDir = c:\Users\brand\workspace\csharp\PlanYourHeist\
-=======
 build_property.ProjectDir = C:\Users\brand\workspace\csharp\PlanYourHeist\
->>>>>>> eb22f9b7827f6bb930b6363c5cd610b97e9af49e
