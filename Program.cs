@@ -11,6 +11,8 @@ namespace PlanYourHeist
             Console.WriteLine();
             List<TeamMember> memberList = new List<TeamMember>();
             bool memberCheck = true;
+            int bankLevel = 100;
+            int memberSkillSum = 0;
             
             while(memberCheck){
 
@@ -34,10 +36,20 @@ namespace PlanYourHeist
                     Console.WriteLine($"There are {memberList.Count} members on the team.");
                 }
             }
+             
             foreach (TeamMember member in memberList)
             {
-                Console.WriteLine($"{member.Name} has a skill level of {member.SkillLevel} and a courage factor of {member.CourageFactor}");
+                memberSkillSum += member.SkillLevel;
             }
+            if (bankLevel <= memberSkillSum)
+            {
+                Console.WriteLine("YOU DID A CRIME!");
+            }
+            else
+            {
+                Console.WriteLine("FAIL");
+            }
+
         }
     }
 }
